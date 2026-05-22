@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-coral-50: rgb(252 233 232);
+  --color-coral-100: rgb(250 210 209);
+  --color-coral-200: rgb(244 165 164);
+  --color-coral-300: rgb(239 120 118);
+  --color-coral-400: rgb(234 75 72);
+  --color-coral-500: rgb(228 30 27);
+  --color-coral-600: rgb(183 24 21);
+  --color-coral-700: rgb(137 18 16);
+  --color-coral-800: rgb(91 12 11);
+  --color-coral-900: rgb(46 6 5);
+  --color-coral-950: rgb(32 4 4);
+
+  --color-steel-50: rgb(240 243 245);
+  --color-steel-100: rgb(225 232 234);
+  --color-steel-200: rgb(195 208 213);
+  --color-steel-300: rgb(165 185 192);
+  --color-steel-400: rgb(135 162 171);
+  --color-steel-500: rgb(105 138 150);
+  --color-steel-600: rgb(84 111 120);
+  --color-steel-700: rgb(63 83 90);
+  --color-steel-800: rgb(42 55 60);
+  --color-steel-900: rgb(21 28 30);
+  --color-steel-950: rgb(15 19 21);
+
+  --color-plum-50: rgb(246 240 239);
+  --color-plum-100: rgb(237 225 222);
+  --color-plum-200: rgb(219 196 189);
+  --color-plum-300: rgb(201 166 156);
+  --color-plum-400: rgb(183 136 123);
+  --color-plum-500: rgb(164 107 91);
+  --color-plum-600: rgb(132 85 72);
+  --color-plum-700: rgb(99 64 54);
+  --color-plum-800: rgb(66 43 36);
+  --color-plum-900: rgb(33 21 18);
+  --color-plum-950: rgb(23 15 13);
+
+  --color-coffee-50: rgb(245 241 239);
+  --color-coffee-100: rgb(236 227 223);
+  --color-coffee-200: rgb(216 198 192);
+  --color-coffee-300: rgb(197 170 160);
+  --color-coffee-400: rgb(177 142 129);
+  --color-coffee-500: rgb(158 113 97);
+  --color-coffee-600: rgb(126 91 78);
+  --color-coffee-700: rgb(95 68 58);
+  --color-coffee-800: rgb(63 45 39);
+  --color-coffee-900: rgb(32 23 19);
+  --color-coffee-950: rgb(22 16 14);
+
+  --color-sapphire-50: rgb(236 239 248);
+  --color-sapphire-100: rgb(218 223 241);
+  --color-sapphire-200: rgb(181 191 227);
+  --color-sapphire-300: rgb(143 160 214);
+  --color-sapphire-400: rgb(106 128 200);
+  --color-sapphire-500: rgb(69 96 186);
+  --color-sapphire-600: rgb(55 77 149);
+  --color-sapphire-700: rgb(41 58 112);
+  --color-sapphire-800: rgb(28 38 74);
+  --color-sapphire-900: rgb(14 19 37);
+  --color-sapphire-950: rgb(10 13 26);
+}
