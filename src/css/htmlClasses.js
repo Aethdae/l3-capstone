@@ -24,6 +24,16 @@ export const ctaButtonClasses = [
   "active:scale-[90%]",
 ];
 
+export const selectMenuClasses = [
+  "bg-coral-400",
+  "border-black",
+  "px-6",
+  "py-2",
+  "text-black",
+  "border-2",
+  "rounded-2xl",
+];
+
 export const textInputClasses = [
   "border-2",
   "bg-gray-400/50",
@@ -53,7 +63,7 @@ export const exerciseCardSpanClasses = [
 export const bigHeaderClasses = [
   "text-xl",
   "self-center",
-  "text-coral-200",
+  "text-coral-100",
   "font-bold",
   "shadow-sm",
   "text-shadow-sm",
@@ -81,7 +91,7 @@ export const linkButtonClasses = [
   "text-sm",
   "px-4",
   "py-3",
-  "rounded-xl",
+  "rounded-4xl",
   "hover:bg-coffee-600",
   "hover:text-coral-100",
   "hover:border-coral-200",

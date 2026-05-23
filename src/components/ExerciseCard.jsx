@@ -1,27 +1,30 @@
 import React from "react";
 import { exerciseCardSpanClasses } from "../css/htmlClasses";
+import { toUpperString } from "../utils/helperFunctions";
 
 export default function ExerciseCard({ exercise }) {
   return (
-    <div className="flex flex-col justify-center items-center bg-steel-600 shadow-md mx-4 border-2 border-black rounded-xl text-white p-2 ">
-      <h2 className="font-bold text-xl">{ToUpperString(exercise.name)}</h2>
+    <div className="flex flex-col justify-center items-center bg-steel-600 shadow-md mx-4 border-2 border-steel-900/40 rounded-xl text-white p-2 ">
+      <h2 className=" bg-coffee-400 font-bold text-xl w-full text-black text-center border-coffee-600 rounded-4xl border-2">
+        {toUpperString(exercise.name)}
+      </h2>
       <p>
         <span className={exerciseCardSpanClasses.join(" ")}>Level</span>:{" "}
-        {ToUpperString(exercise.level)}
+        {toUpperString(exercise.level)}
       </p>
       {exercise.mechanic && (
         <p>
           <span className={exerciseCardSpanClasses.join(" ")}>Mechanic</span>:{" "}
-          {ToUpperString(exercise.mechanic)}
+          {toUpperString(exercise.mechanic)}
         </p>
       )}
       <p>
         <span className={exerciseCardSpanClasses.join(" ")}>Equipment</span>:{" "}
-        {ToUpperString(exercise.equipment)}
+        {toUpperString(exercise.equipment)}
       </p>
       <p>
         <span className={exerciseCardSpanClasses.join(" ")}>Category</span>:{" "}
-        {ToUpperString(exercise.category)}
+        {toUpperString(exercise.category)}
       </p>
       <ul className="self-start">
         {exercise.instructions.map((instruction, index) => (
@@ -37,7 +40,7 @@ export default function ExerciseCard({ exercise }) {
           </h2>
           <ul className="flex flex-col items-center">
             {exercise.primaryMuscles.map((muscle) => (
-              <li key={muscle}>{ToUpperString(muscle)}</li>
+              <li key={muscle}>{toUpperString(muscle)}</li>
             ))}
           </ul>
         </>
@@ -51,7 +54,7 @@ export default function ExerciseCard({ exercise }) {
           </h2>
           <ul className="flex flex-col items-center">
             {exercise.secondaryMuscles.map((muscle) => (
-              <li key={muscle}>{ToUpperString(muscle)}</li>
+              <li key={muscle}>{toUpperString(muscle)}</li>
             ))}
           </ul>
         </>
@@ -60,11 +63,6 @@ export default function ExerciseCard({ exercise }) {
   );
 }
 
-function ToUpperString(str) {
-  if (!str) return "";
-
-  return str[0].toUpperCase() + str.slice(1);
-}
 /*
 name: "3/4 Sit-Up",
       force: "pull",

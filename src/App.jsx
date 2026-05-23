@@ -21,6 +21,13 @@ export default function App() {
   async function getExercises() {
     console.log("Workin.");
   }
+
+  async function handleSignIn(user) {}
+
+  async function handleSignUp(user) {}
+
+  async function handleSignOut(user) {}
+
   useEffect(() => {
     getExercises();
     getUserToken();

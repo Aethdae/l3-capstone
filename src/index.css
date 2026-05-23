@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+  background-color: rgb(42 55 60);
+}
+
 @theme {
   --color-coral-50: rgb(252 233 232);
   --color-coral-100: rgb(250 210 209);
