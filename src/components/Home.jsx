@@ -1,12 +1,14 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import HomeHero from "./HomeHero";
+import Loader from "./Loader";
 
 export default function Home({ session, loading }) {
   return (
-    <main className="min-h-[60vh]">
+    <main className="flex flex-col gap-4 bg-steel-900">
       <Header />
-      {loading ? <div>Loading...</div> : <div>Home</div>}
+      {loading ? <Loader /> : <HomeHero />}
       <Footer />
     </main>
   );
