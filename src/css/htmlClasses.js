@@ -18,8 +18,9 @@ export const textInputClasses = [
   "rounded-sm",
 ];
 
-export const userCardTextClasses = [
-  "flex gap-2",
+export const exerciseCardTextClasses = [
+  "flex",
+  "gap-2",
   "bg-orange-100",
   "px-4",
   "py-2",
@@ -29,3 +30,9 @@ export const userCardTextClasses = [
 ];
 
 export const transitionClasses = ["duration-100", "transition-all", "delay-50"];
+
+export const exerciseCardSpanClasses = [
+  "font-bold",
+  "text-lg",
+  "text-coral-200",
+];
