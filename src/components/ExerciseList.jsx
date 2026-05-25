@@ -6,12 +6,12 @@ import { useState } from "react";
 import { toUpperString } from "../utils/helperFunctions";
 import { buttonClasses, selectMenuClasses } from "../css/htmlClasses";
 
-export default function ExerciseList({ exercises, error }) {
+export default function ExerciseList({ exercises, error, session }) {
   const [filter, setFilter] = useState("");
 
   return (
     <div className="flex flex-col gap-4 bg-steel-800">
-      <Header />
+      <Header session={session} />
       <div className="flex justify-center mx-auto bg-sapphire-600 py-4 rounded-xl border-4 border-sapphire-800/40 w-full">
         <label className="flex gap-4 items-center text-white">
           Filter by category

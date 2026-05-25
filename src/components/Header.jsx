@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { bigHeaderClasses, linkButtonClasses } from "../css/htmlClasses";
 
-export default function Header() {
+export default function Header({ session }) {
   return (
     <div className="border-b-sapphire-500 bg-coffee-900 border-b-8 flex flex-col py-4">
       <h1 className={bigHeaderClasses.join(" ") + " text-center"}>
@@ -13,9 +13,15 @@ export default function Header() {
           <Link to="/" className={linkButtonClasses.join(" ")}>
             Home
           </Link>
-          <Link to="/" className={linkButtonClasses.join(" ")}>
-            Login
-          </Link>
+          {session ? (
+            <Link to="/login" className={linkButtonClasses.join(" ")}>
+              Login
+            </Link>
+          ) : (
+            <Link to="/dashboard" className={linkButtonClasses.join(" ")}>
+              Dashboard
+            </Link>
+          )}
           <Link to="/browse-exercises" className={linkButtonClasses.join(" ")}>
             Browse Exercises
           </Link>

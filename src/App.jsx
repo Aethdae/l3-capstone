@@ -47,11 +47,23 @@ export default function App() {
           path="/"
           element={<Home error={error} session={session} loading={loading} />}
         />
-        <Route path="/login" element={<Login error={error} />} />
-        <Route path="/dashboard" element={<Dashboard error={error} />} />
+        <Route
+          path="/login"
+          element={<Login error={error} session={session} />}
+        />
+        <Route
+          path="/dashboard"
+          element={<Dashboard error={error} session={session} />}
+        />
         <Route
           path="/browse-exercises"
-          element={<ExerciseList exercises={exercises} error={error} />}
+          element={
+            <ExerciseList
+              exercises={exercises}
+              error={error}
+              session={session}
+            />
+          }
         />
       </Routes>
     </div>
