@@ -6,7 +6,7 @@ import { useState } from "react";
 import { toUpperString } from "../utils/helperFunctions";
 import { buttonClasses, selectMenuClasses } from "../css/htmlClasses";
 
-export default function ExerciseList({ exercises }) {
+export default function ExerciseList({ exercises, error }) {
   const [filter, setFilter] = useState("");
 
   return (

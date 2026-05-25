@@ -10,6 +10,7 @@ import { supabase } from "./utils/supabase";
 export default function App() {
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   async function getUserToken() {
     try {
@@ -18,18 +19,24 @@ export default function App() {
       setLoading(false);
     } catch (error) {}
   }
-  async function getExercises() {
-    console.log("Workin.");
-  }
 
-  async function handleSignIn(user) {}
+  async function handleSignIn(user) {
+    try {
+      const { data, err } = await supabase.auth.signUp(user);
+      if (err) {
+        setError(err.message);
+        throw new Error(err);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   async function handleSignUp(user) {}
 
   async function handleSignOut(user) {}
 
   useEffect(() => {
-    getExercises();
     getUserToken();
   }, []);
 
@@ -38,13 +45,13 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home session={session} loading={loading} />}
+          element={<Home error={error} session={session} loading={loading} />}
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<Login error={error} />} />
+        <Route path="/dashboard" element={<Dashboard error={error} />} />
         <Route
           path="/browse-exercises"
-          element={<ExerciseList exercises={exercises} />}
+          element={<ExerciseList exercises={exercises} error={error} />}
         />
       </Routes>
     </div>

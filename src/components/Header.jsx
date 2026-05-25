@@ -10,7 +10,6 @@ export default function Header() {
       </h1>
       <nav className="self-center py-3">
         <div className="flex gap-4">
-          {console.log(linkButtonClasses)}
           <Link to="/" className={linkButtonClasses.join(" ")}>
             Home
           </Link>

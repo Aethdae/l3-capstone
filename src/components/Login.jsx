@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import LoginForm from "./LoginForm";
 
-export default function Login() {
+export default function Login({ error }) {
   return (
     <div>
       <Header />

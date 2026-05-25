@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { buttonClasses, callToActionCardClasses } from "../css/htmlClasses";
+import {
+  buttonClasses,
+  callToActionCardClasses,
+  ctaButtonClasses,
+} from "../css/htmlClasses";
 
 export default function HomeHero({ session }) {
   return (
@@ -11,8 +15,18 @@ export default function HomeHero({ session }) {
             <p>Create an account to track your workouts.</p>
             <p></p>
 
-            <Link to="/login" className={buttonClasses.join(" ")}>
+            <Link to="/login" className={ctaButtonClasses.join(" ")}>
               Sign up
+            </Link>
+          </div>
+        </section>
+      )}
+      {session && (
+        <section className="min-h-[30vh]">
+          <div className={callToActionCardClasses.join(" ")}>
+            <p>Explore your workouts and manage your saved goals.</p>
+            <Link to="/dashboard" className={ctaButtonClasses.join(" ")}>
+              Dashboard
             </Link>
           </div>
         </section>
@@ -24,14 +38,11 @@ export default function HomeHero({ session }) {
         <div className={callToActionCardClasses.join(" ")}>
           Unsure of what to go for? Explore the glossary of workouts at your
           leisure.
-          <Link to="/browse-exercises">Browse</Link>
+          <Link to="/browse-exercises" className={ctaButtonClasses.join(" ")}>
+            Excercises
+          </Link>
         </div>
       </section>
-      {session && (
-        <section className="min-h-[30vh]">
-          <div className={callToActionCardClasses.join(" ")}></div>
-        </section>
-      )}
     </div>
   );
 }
