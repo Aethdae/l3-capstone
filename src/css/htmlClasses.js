@@ -70,6 +70,8 @@ export const bigHeaderClasses = [
   "shadow-sm",
   "text-shadow-sm",
   "text-shadow-white",
+  "md:text-5xl",
+  "lg:text-6xl",
 ];
 
 export const mediumHeaderClasses = [
@@ -81,13 +83,15 @@ export const mediumHeaderClasses = [
   "font-bold",
   "text-shadow-white",
   "text-center",
+  "lg:text-4xl",
 ];
 
 export const callToActionCardClasses = [
   "flex",
   "flex-col",
   "items-center",
-  "gap-8",
+  "justify-around",
+  "gap-4",
   "bg-steel-400",
   "px-4",
   "py-6",
@@ -99,6 +103,10 @@ export const callToActionCardClasses = [
   "border-4",
   "shadow-sm",
   "shadow-steel-300",
+  "w-full",
+  "md:text-2xl",
+  "lg:text-3xl",
+  "md:gap-8",
 ];
 
 export const linkButtonClasses = [
@@ -118,12 +126,30 @@ export const linkButtonClasses = [
   "hover:outline-2",
   "shadow-md",
   "shadow-coffee-500",
+  "md:text-xl",
+  "lg:text-2xl",
   ...transitionClasses,
 ];
 
 export const exerciseCardClasses = [
   "flex",
   "flex-col",
+  "justify-around",
+  "items-center",
+  "bg-steel-600",
+  "shadow-md",
+  "mx-4",
+  "border-2",
+  "border-steel-900/40",
+  "rounded-xl",
+  "text-white",
+  "p-2",
+];
+
+export const workoutCardClasses = [
+  "flex",
+  "flex-col",
+  "gap-2",
   "justify-center",
   "items-center",
   "bg-steel-600",
@@ -138,4 +164,24 @@ export const exerciseCardClasses = [
 
 export const spinnerClasses = ["h-10", "animate-spin"];
 
-export const listClasses = ["flex", "flex-col"];
+export const listClasses = [
+  "flex",
+  "flex-col",
+  "items-center",
+  "bg-sapphire-700",
+  "gap-2",
+  "w-full",
+  "p-2",
+  "text-white",
+  "md:text-xl",
+  "lg:text-2xl",
+];
+
+export const heroSectionClasses = [
+  "min-h-[30vh]",
+  "max-w-[90%]",
+  "flex",
+  "md:max-w-[60%]",
+  "lg:max-w-[50%]",
+  "w-full",
+];

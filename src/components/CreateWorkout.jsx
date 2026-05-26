@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { exercises } from "../assets/exercises";
-import { toUpperString } from "../utils/helperFunctions";
+import { toUpperString, toUpperStringLimited } from "../utils/helperFunctions";
 import {
   buttonClasses,
   listClasses,
+  mediumHeaderClasses,
   selectMenuClasses,
   textInputClasses,
 } from "../css/htmlClasses";
@@ -12,13 +13,15 @@ import { supabase } from "../utils/supabase";
 export default function CreateWorkout({ session, getWorkouts }) {
   const [newWorkout, setNewWorkout] = useState([]);
   const [currExercise, setCurrExercise] = useState("");
-  const [reps, setReps] = useState(0);
+  const [reps, setReps] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
     if (reps <= 0 || currExercise === "") {
       return;
     }
     setNewWorkout([...newWorkout, { exercise: currExercise, reps: reps }]);
+    setReps("");
+    setCurrExercise("");
   }
   async function prepareDataForDB() {
     let id = 0;
@@ -43,7 +46,7 @@ export default function CreateWorkout({ session, getWorkouts }) {
     getWorkouts();
   }
   function clearValues() {
-    setReps(0);
+    setReps("");
     setNewWorkout([]);
     setCurrExercise("");
   }
@@ -68,8 +71,10 @@ export default function CreateWorkout({ session, getWorkouts }) {
           >
             <option value="">Select an exercise to add.</option>
             {exercises.map((exercise) => (
-              <option key={exercise.name} value={exercise.exercise}>
-                {toUpperString(exercise.name)}
+              <option key={exercise.name} value={exercise.name}>
+                {window.innerWidth < 500
+                  ? toUpperStringLimited(exercise.name)
+                  : toUpperString(exercise.name)}
               </option>
             ))}
           </select>
@@ -89,24 +94,33 @@ export default function CreateWorkout({ session, getWorkouts }) {
         </label>
         <button className={buttonClasses.join(" ")}>Add to Workout</button>
       </form>
-      <form
-        className="flex flex-col p-12 items-center w-full gap-6 bg-steel-700 text-white py-10"
-        onSubmit={(e) => {
-          handleAddWorkout(e);
-        }}
-      >
-        <button className={buttonClasses.join(" ")}>Submit Workout</button>
-      </form>
+      <div className="flex flex-col w-full items-center gap-2 text-center">
+        <h2 className={mediumHeaderClasses.join(" ") + " w-full"}>
+          Current Workout
+        </h2>
+        {newWorkout.length > 0 && (
+          <ul className={listClasses.join(" ")} id="currentWorkoutContainer">
+            {newWorkout.map((exercise) => (
+              <li
+                className="border-b-2 border-b-sapphire-900 border-t-2 border-t-sapphire-900 px-2 border-x-4 border-x-steel-900 rounded-xl md:px-6 lg:px-8 h-full w-full max-w-[60%]"
+                key={crypto.randomUUID()}
+              >
+                <p>{exercise.exercise}</p>
+                <p>Reps: {exercise.reps}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+        <form
+          className="flex flex-col items-center w-full gap-6 bg-steel-700 text-white"
+          onSubmit={(e) => {
+            handleAddWorkout(e);
+          }}
+        >
+          <button className={buttonClasses.join(" ")}>Submit Workout</button>
+        </form>
+      </div>
       <hr />
-      <ul className={listClasses.join(" ")} id="currentWorkoutContainer">
-        {newWorkout.length > 0 &&
-          newWorkout.map((exercise) => (
-            <li key={crypto.randomUUID()}>
-              <p>{exercise.exercise}</p>
-              <p>Reps: {exercise.reps}</p>
-            </li>
-          ))}
-      </ul>
     </div>
   );
 }

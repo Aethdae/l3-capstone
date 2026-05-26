@@ -4,18 +4,21 @@ import {
   buttonClasses,
   callToActionCardClasses,
   ctaButtonClasses,
+  heroSectionClasses,
 } from "../css/htmlClasses";
 
 export default function HomeHero({ session }) {
   return (
     <div className="min-h-[90vh] bg-steel-900 gap-4 flex flex-col items-center">
       {!session && (
-        <section className="min-h-[30vh] max-w-[90%] flex">
+        <section className={heroSectionClasses.join(" ")}>
           <div className={callToActionCardClasses.join(" ")}>
             <p className="text-center">
-              Create an account to track your workouts.
+              Create a free account to track your workouts.
             </p>
-            <p className="text-center"></p>
+            <p className="text-center">
+              Keep up with your goals and gains easily.
+            </p>
 
             <Link to="/login" className={ctaButtonClasses.join(" ")}>
               Sign up
@@ -24,7 +27,7 @@ export default function HomeHero({ session }) {
         </section>
       )}
       {session && (
-        <section className="min-h-[30vh] max-w-[90%] flex">
+        <section className={heroSectionClasses.join(" ")}>
           <div className={callToActionCardClasses.join(" ")}>
             <p className="text-center">
               Explore your workouts and manage your saved goals.
@@ -35,15 +38,15 @@ export default function HomeHero({ session }) {
           </div>
         </section>
       )}
-      <section className="min-h-[30vh] max-w-[90%] flex">
+      <section className={heroSectionClasses.join(" ")}>
         <div className={callToActionCardClasses.join(" ")}>
           <p className="text-center">
             Create custom workouts and save your progress.
           </p>
-          <img src="https://www.placehold.co/300" alt="ph-img" />
+          <img src="src\assets\example.png" alt="exercise example" />
         </div>
       </section>
-      <section className="min-h-[30vh] max-w-[90%] flex">
+      <section className={heroSectionClasses.join(" ")}>
         <div className={callToActionCardClasses.join(" ")}>
           <p className="text-center">
             Unsure of what to go for? Explore the glossary of workouts at your
@@ -52,6 +55,9 @@ export default function HomeHero({ session }) {
           <Link to="/browse-exercises" className={ctaButtonClasses.join(" ")}>
             Excercise Gallery
           </Link>
+          <p className="text-center">
+            Once you have a plan in mind, create an account and add it!
+          </p>
         </div>
       </section>
     </div>

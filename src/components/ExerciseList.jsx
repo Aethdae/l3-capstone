@@ -40,7 +40,10 @@ export default function ExerciseList({ exercises, error, session }) {
           </select>
         </label>
       </div>
-      <div id="exerciseContainer" className="flex flex-col gap-4">
+      <div
+        id="exerciseContainer"
+        className="flex flex-col gap-4 md:grid md:grid-cols-2 lg:grid-cols-3"
+      >
         {filter &&
           exercises
             .filter((exercise) => exercise.category == filter)
