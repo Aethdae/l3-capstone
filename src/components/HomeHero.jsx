@@ -43,7 +43,7 @@ export default function HomeHero({ session }) {
           <p className="text-center">
             Create custom workouts and save your progress.
           </p>
-          <img src="/src\assets\example.png" alt="exercise example" />
+          <img src="/src/assets/example.png" alt="exercise example" />
         </div>
       </section>
       <section className={heroSectionClasses.join(" ")}>
