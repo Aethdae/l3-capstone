@@ -54,7 +54,7 @@ export default function HomeHero({ session }) {
             Unsure of what to go for? Explore the glossary of workouts at your
             leisure.
           </p>
-          <Link to="/browse-exercises" className={ctaButtonClasses.join(" ")}>
+          <Link to="/browse-exercises#" className={ctaButtonClasses.join(" ")}>
             Excercise Gallery
           </Link>
           <p className="text-center">

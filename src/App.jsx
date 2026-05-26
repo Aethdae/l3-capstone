@@ -97,7 +97,7 @@ export default function App() {
           }
         />
         <Route
-          path="/browse-exercises#"
+          path="/browse-exercises"
           element={
             <ExerciseList
               exercises={exercises}
