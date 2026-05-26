@@ -1,10 +1,13 @@
 import React from "react";
-import { exerciseCardSpanClasses } from "../css/htmlClasses";
+import {
+  exerciseCardClasses,
+  exerciseCardSpanClasses,
+} from "../css/htmlClasses";
 import { toUpperString } from "../utils/helperFunctions";
 
 export default function ExerciseCard({ exercise }) {
   return (
-    <div className="flex flex-col justify-center items-center bg-steel-600 shadow-md mx-4 border-2 border-steel-900/40 rounded-xl text-white p-2 ">
+    <div className={exerciseCardClasses.join(" ")}>
       <h2 className=" bg-coffee-400 font-bold text-xl w-full text-black text-center border-coffee-600 rounded-4xl border-2">
         {toUpperString(exercise.name)}
       </h2>

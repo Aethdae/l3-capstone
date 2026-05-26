@@ -16,7 +16,7 @@ export default function App() {
     try {
       const { data, err } = await supabase.auth.getSession();
       if (data.session) {
-        setSession(data);
+        setSession(data.session);
       }
       setLoading(false);
     } catch (error) {}

@@ -1,9 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { bigHeaderClasses, linkButtonClasses } from "../css/htmlClasses";
+import { supabase } from "../utils/supabase";
 
-export default function Header({ session }) {
-  async function handleSignOut() {}
+export default function DashHeader({ session }) {
+  async function handleSignOut() {
+    try {
+      const { err } = await supabase.auth.signOut();
+      if (err) {
+        throw new Error(err);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <header className="border-b-sapphire-500 bg-coffee-900 border-b-8 flex flex-col py-4">
       <h1 className={bigHeaderClasses.join(" ") + " text-center"}>
@@ -14,18 +24,17 @@ export default function Header({ session }) {
           <Link to="/" className={linkButtonClasses.join(" ")}>
             Home
           </Link>
-          {session ? (
-            <Link to="/dashboard" className={linkButtonClasses.join(" ")}>
-              Dashboard
-            </Link>
-          ) : (
-            <Link to="/login" className={linkButtonClasses.join(" ")}>
-              Login
-            </Link>
-          )}
           <Link to="/browse-exercises" className={linkButtonClasses.join(" ")}>
             Browse Exercises
           </Link>
+          <button
+            className={linkButtonClasses.join(" ")}
+            onClick={() => {
+              handleSignOut();
+            }}
+          >
+            Sign Out
+          </button>
         </div>
       </nav>
     </header>

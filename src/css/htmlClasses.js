@@ -80,6 +80,7 @@ export const mediumHeaderClasses = [
   "bg-steel-700",
   "font-bold",
   "text-shadow-white",
+  "text-center",
 ];
 
 export const callToActionCardClasses = [
@@ -119,3 +120,22 @@ export const linkButtonClasses = [
   "shadow-coffee-500",
   ...transitionClasses,
 ];
+
+export const exerciseCardClasses = [
+  "flex",
+  "flex-col",
+  "justify-center",
+  "items-center",
+  "bg-steel-600",
+  "shadow-md",
+  "mx-4",
+  "border-2",
+  "border-steel-900/40",
+  "rounded-xl",
+  "text-white",
+  "p-2",
+];
+
+export const spinnerClasses = ["h-10", "animate-spin"];
+
+export const listClasses = ["flex", "flex-col"];
