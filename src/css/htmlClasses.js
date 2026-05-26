@@ -42,6 +42,7 @@ export const textInputClasses = [
   "bg-gray-400/50",
   "border-black",
   "rounded-sm",
+  "px-2",
 ];
 
 export const exerciseCardTextClasses = [
@@ -62,12 +63,22 @@ export const exerciseCardSpanClasses = [
 ];
 
 export const bigHeaderClasses = [
-  "text-xl",
+  "text-4xl",
   "self-center",
   "text-coral-100",
   "font-bold",
   "shadow-sm",
   "text-shadow-sm",
+  "text-shadow-white",
+];
+
+export const mediumHeaderClasses = [
+  "text-3xl",
+  "py-2",
+  "self-center",
+  "text-coral-100",
+  "bg-steel-700",
+  "font-bold",
   "text-shadow-white",
 ];
 

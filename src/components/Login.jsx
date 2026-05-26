@@ -3,11 +3,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import LoginForm from "./LoginForm";
 
-export default function Login({ error, session }) {
+export default function Login({ error, session, handleSignUp, handleLogIn }) {
   return (
     <div>
       <Header session={session} />
-      <LoginForm />
+      <LoginForm handleSignUp={handleSignUp} handleLogIn={handleLogIn} />
       <Footer />
     </div>
   );

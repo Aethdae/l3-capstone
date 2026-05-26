@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { exercises } from "./assets/exercises";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
@@ -15,28 +15,52 @@ export default function App() {
   async function getUserToken() {
     try {
       const { data, err } = await supabase.auth.getSession();
-      setSession(data);
+      if (data.session) {
+        setSession(data);
+      }
       setLoading(false);
     } catch (error) {}
   }
 
-  async function handleSignIn(user) {
+  async function handleLogIn(user) {
     try {
-      const { data, err } = await supabase.auth.signUp(user);
+      const { data, err } = await supabase.auth.signInWithPassword(user);
       if (err) {
         setError(err.message);
         throw new Error(err);
+      }
+      if (data.session) {
+        setSession(data);
       }
     } catch (error) {
       console.error(error);
     }
   }
 
-  async function handleSignUp(user) {}
-
-  async function handleSignOut(user) {}
+  async function handleSignUp(user) {
+    try {
+      const { data, err } = await supabase.auth.signUp(user);
+      if (err) {
+        setError(err.message);
+        throw new Error(err);
+      }
+      setSession(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  async function authChange() {
+    const { data } = await supabase.auth.onAuthStateChange((event, session) => {
+      setSession(session);
+    });
+    return () => {
+      data.subscription.unsubscribe();
+    };
+  }
 
   useEffect(() => {
+    authChange();
+
     getUserToken();
   }, []);
 
@@ -49,11 +73,28 @@ export default function App() {
         />
         <Route
           path="/login"
-          element={<Login error={error} session={session} />}
+          element={
+            session ? (
+              <Dashboard session={session} />
+            ) : (
+              <Login
+                error={error}
+                session={session}
+                handleLogIn={handleLogIn}
+                handleSignUp={handleSignUp}
+              />
+            )
+          }
         />
         <Route
           path="/dashboard"
-          element={<Dashboard error={error} session={session} />}
+          element={
+            session ? (
+              <Dashboard error={error} session={session} />
+            ) : (
+              <Navigate to={"/login"} />
+            )
+          }
         />
         <Route
           path="/browse-exercises"
