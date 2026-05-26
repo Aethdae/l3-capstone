@@ -8,6 +8,8 @@ import {
 } from "../css/htmlClasses";
 
 export default function HomeHero({ session }) {
+  const exampleImage = new URL("../assets/example.png", import.meta.url).href;
+
   return (
     <div className="min-h-[90vh] bg-steel-900 gap-4 flex flex-col items-center">
       {!session && (
@@ -43,7 +45,7 @@ export default function HomeHero({ session }) {
           <p className="text-center">
             Create custom workouts and save your progress.
           </p>
-          <img src="/src/assets/example.png" alt="exercise example" />
+          <img src={exampleImage} alt="exercise example" />
         </div>
       </section>
       <section className={heroSectionClasses.join(" ")}>
