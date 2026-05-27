@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { exercises } from "./assets/exercises";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, ScrollRestoration } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
